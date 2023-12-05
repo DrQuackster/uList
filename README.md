@@ -28,6 +28,7 @@ Start by creating a new GitHub repository where you will host your merged filter
 *Clone the repository to your local machine using Git.*
 
 bash
+Copy code
 git clone https://github.com/your-username/your-repository.git
 
 ## 3. Create a Script or Use Command Line:
