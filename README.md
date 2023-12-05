@@ -26,17 +26,17 @@ Start by creating a new GitHub repository where you will host your merged filter
 ## 2. Clone the Repository:
 *Clone the repository to your local machine using Git.*
 
-bash
+````bash
 git clone https://github.com/your-username/your-repository.git
+````
+
 ## 3. Create a Script or Use Command Line:
 
 * You can use a scripting language (like Python or Bash) to automate the process of fetching and merging filter lists.
 
 * Create a script that reads URLs from a list and appends the rules to a single file.
 
-python
-import requests
-
+````python
 filter_lists = [
     'https://example.com/filterlist1.txt',
     'https://example.com/filterlist2.txt',
@@ -52,15 +52,18 @@ for url in filter_lists:
 
 with open('merged_filterlist.txt', 'w') as merged_file:
     merged_file.write('\n'.join(merged_rules))
+````
 
 ## 4. Commit and Push:
 
 *Commit the changes and push them to your GitHub repository.*
 
-bash
+
+````bash
 git add merged_filterlist.txt
 git commit -m "Merge filter lists"
 git push origin master
+````
 
 ##5. Host the Merged Filter List:
 
