@@ -1,4 +1,3 @@
-
 # uList Repository
 Welcome to the uList repository – a glimpse into the world of experimentation with AI-driven automation.
 
@@ -23,14 +22,12 @@ If you want to merge multiple filter lists for uBlock Origin efficiently using G
 If you want to merge multiple filter lists for uBlock Origin efficiently using GitHub, you can follow these general steps:
 ## 1. create a New Repository:
 Start by creating a new GitHub repository where you will host your merged filter list.
-## 2. Clone the Repository:
 
+## 2. Clone the Repository:
 *Clone the repository to your local machine using Git.*
 
 bash
-Copy code
 git clone https://github.com/your-username/your-repository.git
-
 ## 3. Create a Script or Use Command Line:
 
 * You can use a scripting language (like Python or Bash) to automate the process of fetching and merging filter lists.
