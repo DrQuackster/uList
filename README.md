@@ -65,7 +65,7 @@ git commit -m "Merge filter lists"
 git push origin master
 ````
 
-##5. Host the Merged Filter List:
+## 5. Host the Merged Filter List:
 
 * Make sure the merged filter list file (merged_filterlist.txt) is accessible via a raw URL on GitHub. You can use the "Raw" button on GitHub to get the raw URL.
 
