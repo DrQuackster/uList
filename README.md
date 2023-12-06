@@ -3,7 +3,7 @@ Welcome to the uList repository – a glimpse into the world of experimentation 
 
 # Introduction
 # uList
-This project, aptly named uList, is an experiment in automation guided by artificial intelligence. It doesn't serve any practical purpose beyond showcasing a scripted method for merging preexistem lists. It's a product of AI experimentation, and I want to be transparent—It may contain bugs.
+uList is a personal project that explores the intersection of artificial intelligence and scripting for list merging. As the owner of this repository, it's important to mention that my coding knowledge is quite limited, extending only to basic terminal commands.
 
 # Disclaimer
 This repository is fully maintained by AI. It's an experiment and does not offer practical functionality beyond demonstrating a scripted method for merging pre-existing lists. As a result:
