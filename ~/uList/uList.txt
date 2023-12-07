@@ -1,0 +1,8 @@
+
+! Expires: 1 day
+! For uList, see https://github.com/DrQuackster/uList/blob/main/LICENSE
+! Homepage: https://github.com/DrQuackster/uList
+! Last updated: Not available
+! Script last updated: 07/12/2023
+! The Python script and my two lists are under CC0
+! Title: uList
