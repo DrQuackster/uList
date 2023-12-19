@@ -1,61 +1,21 @@
-#!/bin/bash
+filter_lists = [
+  'https://big.oisd.nl/'
+  'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/readme.md'
+  'https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.txt'
+  'https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.txt'
+  'https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt'
+  'https://raw.githubusercontent.com/iam-py-test/uBlock-combo/main/list.txt'
+  'https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/spam-tlds-ublock.txt'
+  'https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/whitelist.txt'
+  # Add more filter list URLs as needed
+]
 
-# GitHub repository information
-repo_user="DrQuackster"
-repo_name="uList"
-repo_url="https://github.com/DrQuackster/uList.git"
-repo_token="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"
+merged_rules = []
 
-# Metadata for uList.txt
-metadata="
-! Title: uList
-! Description: The useless List
-! Script last updated: 22/11/2023
-! Last updated: {}
-! Homepage: https://github.com/DrQuackster/uList
-! License: https://github.com/DrQuackster/uList/blob/master/LICENSE.txt
-! Syntax: Adblock Plus Filter List
-! Maintainer: Dr. Duckenstein
-! Contact: drduckenstein@protonmail.com
-"
+for url in filter_lists:
+    response = requests.get(url)
+    if response.status_code == 200:
+        merged_rules.extend(response.text.split('\n'))
 
-# Initialize an array with the URLs of the filter lists
-filter_lists=(
-  "https://big.oisd.nl/"
-  "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/readme.md"
-  "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/tif.txt"     
-  "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.txt"
-  "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/gambling.txt"
-  "https://raw.githubusercontent.com/iam-py-test/uBlock-combo/main/list.txt"
-  "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/spam-tlds-ublock.txt"
-  "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/whitelist.txt"
-  "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/whitelist.txt"
-)
-
-# Create a directory for storing the filter list file
-output_dir="uList"
-mkdir -p "$output_dir"
-
-# Download and concatenate the filter lists
-for url in "${filter_lists[@]}"; do
-  curl -sSL "$url" >> "$output_dir/uList_temp.txt"
-done
-
-# Remove metadata from the previous uList.txt and add new metadata
-grep -v '^!' "$output_dir/uList_temp.txt" > "$output_dir/uList.txt"
-echo "$metadata" | cat - "$output_dir/uList.txt" > "$output_dir/uList_temp.txt"
-mv "$output_dir/uList_temp.txt" "$output_dir/uList.txt"
-
-# Remove duplicate lines in the merged filter list
-sort -u "$output_dir/uList.txt" -o "$output_dir/uList.txt"
-
-# Commit and push changes to the GitHub repository using the token
-cd "$output_dir"
-git init
-git add uList.txt
-git commit -m ""
-git remote add origin "$repo_url"
-git push -u origin master
-
-# Clean up temporary files and directories
-rm -rf "$output_dir"
+with open('merged_filterlist.txt', 'w') as merged_file:
+    merged_file.write('\n'.join(merged_rules))
