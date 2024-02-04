@@ -3,12 +3,11 @@ import argparse
 
 BASE_URL = "http://filterlists.com/api/directory/v1"
 
-def search_filterlists(api_url, api_key, query, category=None, name=None, software=None, maintainer=None, license=None):
+def search_filterlists(api_url, query, category=None, name=None, software=None, maintainer=None, license=None):
     endpoint = f"{api_url}/lists"
-    headers = {"Authorization": f"Bearer {api_key}"}
     params = {"query": query, "category": category, "name": name, "software": software, "maintainer": maintainer, "license": license}
 
-    response = requests.get(endpoint, headers=headers, params=params)
+    response = requests.get(endpoint, params=params)
 
     if response.status_code == 200:
         return response.json()
@@ -20,8 +19,6 @@ def get_languages(api_url):
     endpoint = f"{api_url}/languages"
     response = requests.get(endpoint)
     return response.json()
-
-# Add similar functions for other endpoints if needed
 
 def main():
     parser = argparse.ArgumentParser(description="Interact with FilterLists Directory API from the command line")
@@ -42,7 +39,6 @@ def main():
     if args.command == "search":
         result = search_filterlists(
             BASE_URL,
-            api_key=None,  # Replace with your actual API key
             query=args.query,
             category=None,
             name=args.name,
