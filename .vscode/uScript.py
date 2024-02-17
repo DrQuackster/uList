@@ -3,17 +3,18 @@ import requests
 from git import Repo
 
 # GitHub credentials
-github_username = "your_github_username"
-github_token = "your_github_token"
+github_username = "DrQuackster"
+github_token = "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"
 
 # GitHub repository information
-repo_owner = "your_github_username"
+repo_owner = "DrQuackster"
 repo_name = "uList"
 
 # List of uBO filter lists to merge
 filter_lists = [
-    "https://example.com/filterlist1.txt",
-    "https://example.com/filterlist2.txt",
+    "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/ultimate.txt",
+    "https://raw.githubusercontent.com/iam-py-test/uBlock-combo/main/list.txt",
+    "https://raw.githubusercontent.com/iam-py-test/uBlock-combo/main/list.txt",
     # Add more filter lists as needed
 ]
 
