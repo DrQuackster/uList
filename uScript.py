@@ -7,7 +7,7 @@ import publicsuffixlist
 
 psl = publicsuffixlist.PublicSuffixList()
 
-LIST_FILENAME = "list.txt"
+LIST_FILENAME = "uList.txt"
 STATUS_FILENAME = "status.txt"
 DOMAIN_FILENAME = "domains.txt"
 OUTPUT_DIRECTORY = r"C:\Users\ASUS\Documents\uList\uList.txt"
