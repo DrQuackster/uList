@@ -4,7 +4,7 @@ from git import Repo
 
 # GitHub credentials
 github_username = "DrQuackster"
-github_token = "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"
+github_token = "your-token"
 
 # GitHub repository information
 repo_owner = "DrQuackster"
